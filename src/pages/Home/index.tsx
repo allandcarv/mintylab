@@ -28,31 +28,31 @@ const Home: React.FC = () => (
       <Header />
     </StyledHeader>
 
-    <StyledSection1>
+    <StyledSection1 id="section1">
       <Section1 />
     </StyledSection1>
 
-    <StyledSection2>
+    <StyledSection2 id="section2">
       <Section2 />
     </StyledSection2>
 
-    <StyledSection3>
+    <StyledSection3 id="section3">
       <Section3 />
     </StyledSection3>
 
-    <StyledSection4>
+    <StyledSection4 id="section4">
       <Section4 />
     </StyledSection4>
 
-    <StyledSection5>
+    <StyledSection5 id="section5">
       <Section5 />
     </StyledSection5>
 
-    <StyledSection6>
+    <StyledSection6 id="section6">
       <Section6 />
     </StyledSection6>
 
-    <StyledSection7>
+    <StyledSection7 id="section7">
       <Section7 />
     </StyledSection7>
 

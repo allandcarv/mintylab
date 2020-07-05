@@ -23,6 +23,7 @@ export default createGlobalStyle`
 
   section {
     min-height: calc(100vh - 80px);
+    scroll-margin-top: 80px;
   }
 
   footer {

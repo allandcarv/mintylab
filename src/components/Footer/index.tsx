@@ -10,7 +10,7 @@ const Footer: React.FC = () => (
         <a
           href="https://app.mintysquare.com/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           title="Login B2B"
         >
           Login B2B
@@ -20,7 +20,7 @@ const Footer: React.FC = () => (
         <a
           href="https://www.linkedin.com/showcase/minty-lab-/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           title="Linkedin"
         >
           Linkedin
@@ -30,7 +30,7 @@ const Footer: React.FC = () => (
         <a
           href="https://www.instagram.com/minty_lab/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           title="Instagram"
         >
           Instagram
@@ -40,7 +40,7 @@ const Footer: React.FC = () => (
         <a
           href="https://www.facebook.com/lab.minty/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           title="Facebook"
         >
           Facebook
