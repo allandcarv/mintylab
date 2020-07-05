@@ -25,34 +25,34 @@ import {
 const Home: React.FC = () => (
   <>
     <StyledHeader>
-      <Header />
+      <Header toWhere="#banner" />
     </StyledHeader>
 
-    <StyledSection1 id="section1">
+    <StyledSection1 id="banner">
       <Section1 />
     </StyledSection1>
 
-    <StyledSection2 id="section2">
+    <StyledSection2 id="our-goal">
       <Section2 />
     </StyledSection2>
 
-    <StyledSection3 id="section3">
+    <StyledSection3 id="portfolio">
       <Section3 />
     </StyledSection3>
 
-    <StyledSection4 id="section4">
+    <StyledSection4 id="services">
       <Section4 />
     </StyledSection4>
 
-    <StyledSection5 id="section5">
+    <StyledSection5 id="advantages">
       <Section5 />
     </StyledSection5>
 
-    <StyledSection6 id="section6">
+    <StyledSection6 id="about-us">
       <Section6 />
     </StyledSection6>
 
-    <StyledSection7 id="section7">
+    <StyledSection7 id="contact">
       <Section7 />
     </StyledSection7>
 

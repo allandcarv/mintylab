@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ImgLogo = styled.img`
   width: 184px;
+  height: 100%;
 `;
 
 export const HorizontalMenu = styled.ul`

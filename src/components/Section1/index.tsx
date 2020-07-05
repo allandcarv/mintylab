@@ -32,7 +32,7 @@ const Section1: React.FC = () => (
         </span>
       </h3>
     </StyledHgroup>
-    <a href="#section6" onClick={handleClick}>
+    <a href="#contact" onClick={handleClick}>
       <video autoPlay muted playsInline loop>
         <source src={VideoWebm} type="video/webm" />
         <source src={VideoMp4} type="video/mp4" />

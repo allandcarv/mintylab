@@ -20,6 +20,9 @@ export const StyledSection1 = styled.section`
 `;
 
 export const StyledSection2 = styled.section`
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
   background-color: #dedede;
 `;
 

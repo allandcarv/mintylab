@@ -6,10 +6,18 @@ import { ImgLogo, HorizontalMenu } from './styles';
 
 const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
   event.preventDefault();
-  const indexOfId = (event.target as HTMLAnchorElement).href.indexOf('#');
-  const targetId = (event.target as HTMLAnchorElement).href.substr(
-    indexOfId + 1,
-  );
+
+  let target: HTMLAnchorElement;
+
+  if ((event.target as HTMLAnchorElement).href) {
+    target = event.target as HTMLAnchorElement;
+  } else {
+    const { parentElement } = event.target as HTMLAnchorElement;
+    target = parentElement as HTMLAnchorElement;
+  }
+
+  const indexOfId = (target as HTMLAnchorElement).href.indexOf('#');
+  const targetId = (target as HTMLAnchorElement).href.substr(indexOfId + 1);
   const anchorTarget = document.getElementById(targetId);
 
   if (anchorTarget) {
@@ -17,37 +25,42 @@ const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
   }
 };
 
-const Header: React.FC = () => (
+interface Request {
+  toWhere: string;
+}
+const Header: React.FC<Request> = ({ toWhere }: Request) => (
   <>
-    <ImgLogo src={mintyLogo} alt="MINTY Lab Logo" />
+    <a href={toWhere} onClick={handleClick}>
+      <ImgLogo src={mintyLogo} alt="MINTY Lab Logo" />
+    </a>
     <HorizontalMenu>
       <li>
-        <a href="#section1" onClick={handleClick}>
+        <a href="#our-goal" onClick={handleClick}>
           O nosso Objetivo
         </a>
       </li>
       <li>
-        <a href="#section2" onClick={handleClick}>
+        <a href="#portfolio" onClick={handleClick}>
           Portfólio
         </a>
       </li>
       <li>
-        <a href="#section3" onClick={handleClick}>
+        <a href="#services" onClick={handleClick}>
           Serviços
         </a>
       </li>
       <li>
-        <a href="#section4" onClick={handleClick}>
+        <a href="#advantages" onClick={handleClick}>
           Vantagens
         </a>
       </li>
       <li>
-        <a href="#section5" onClick={handleClick}>
+        <a href="#about-us" onClick={handleClick}>
           Sobre nós
         </a>
       </li>
       <li>
-        <a href="#section6" onClick={handleClick}>
+        <a href="#contact" onClick={handleClick}>
           Contacto
         </a>
       </li>
