@@ -9,9 +9,13 @@ export const StyledHeader = styled.header`
   top: 0;
   height: 80px;
   background-color: #dedede;
+  z-index: 2;
 `;
 
 export const StyledSection1 = styled.section`
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
   background-color: #dedede;
 `;
 

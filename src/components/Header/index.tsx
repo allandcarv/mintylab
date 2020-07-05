@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 
-import mintyLogo from '../../assets/logo_mintylab.svg';
+import mintyLogo from '../../assets/images/logo_mintylab.svg';
 
 import { ImgLogo, HorizontalMenu } from './styles';
 
