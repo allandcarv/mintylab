@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { FooterMenu } from './styles';
+import { StyledFooter, FooterMenu } from './styles';
 
 const Footer: React.FC = () => (
-  <>
+  <StyledFooter>
     <p>2019-2020 &copy; MintySquare. All Rights Reserved</p>
     <FooterMenu>
       <li>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => (
         </a>
       </li>
     </FooterMenu>
-  </>
+  </StyledFooter>
 );
 
 export default Footer;

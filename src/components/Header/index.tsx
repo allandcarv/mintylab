@@ -1,20 +1,13 @@
 import React, { MouseEvent } from 'react';
 
-import mintyLogo from '../../assets/images/logo_mintylab.svg';
+import { StyledHeader, HorizontalMenu } from './styles';
 
-import { ImgLogo, HorizontalMenu } from './styles';
+import HeaderLogo from '../HeaderLogo';
 
 const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
   event.preventDefault();
 
-  let target: HTMLAnchorElement;
-
-  if ((event.target as HTMLAnchorElement).href) {
-    target = event.target as HTMLAnchorElement;
-  } else {
-    const { parentElement } = event.target as HTMLAnchorElement;
-    target = parentElement as HTMLAnchorElement;
-  }
+  const target = event.target as HTMLAnchorElement;
 
   const indexOfId = (target as HTMLAnchorElement).href.indexOf('#');
   const targetId = (target as HTMLAnchorElement).href.substr(indexOfId + 1);
@@ -25,14 +18,9 @@ const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
   }
 };
 
-interface Request {
-  toWhere: string;
-}
-const Header: React.FC<Request> = ({ toWhere }: Request) => (
-  <>
-    <a href={toWhere} onClick={handleClick}>
-      <ImgLogo src={mintyLogo} alt="MINTY Lab Logo" />
-    </a>
+const Header: React.FC = () => (
+  <StyledHeader>
+    <HeaderLogo toWhere="#banner" />
     <HorizontalMenu>
       <li>
         <a href="#our-goal" onClick={handleClick}>
@@ -70,7 +58,7 @@ const Header: React.FC<Request> = ({ toWhere }: Request) => (
         </a>
       </li>
     </HorizontalMenu>
-  </>
+  </StyledHeader>
 );
 
 export default Header;

@@ -11,6 +11,7 @@ export default createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     margin-top: 80px;
+    overflow-x: hidden;
   }
 
   button {
@@ -19,19 +20,19 @@ export default createGlobalStyle`
 
   main {
     width: 100%;
-  }
 
-  section {
-    min-height: calc(100vh - 80px);
-    scroll-margin-top: 80px;
-  }
+    > section {
+      min-height: calc(100vh - 80px);
+      scroll-margin-top: 80px;
+    }
 
-  footer {
-    height: 50px;
-  }
+    > footer {
+      height: 50px;
+    }
 
-  section, footer {
-    width: 100%;
-    padding: 0 13%;
+    > section, > footer {
+      width: 100%;
+      padding: 0 13%;
+    }
   }
 `;

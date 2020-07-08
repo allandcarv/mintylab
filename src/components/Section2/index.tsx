@@ -3,10 +3,14 @@ import React from 'react';
 import OurGoalImg from '../../assets/images/banner_8.jpg';
 import OurGoalImgMob from '../../assets/images/banner_8_mob.jpg';
 
-import { StyledPicture, StyledArticle } from './styles';
+import { StyledSection, StyledPicture, StyledArticle } from './styles';
 
-const Section2: React.FC = () => (
-  <>
+interface SectionProps {
+  id: string;
+}
+
+const Section2: React.FC<SectionProps> = ({ id }) => (
+  <StyledSection id={id}>
     <StyledPicture>
       <source
         media="(max-width: 767px)"
@@ -38,7 +42,7 @@ const Section2: React.FC = () => (
         <strong>Venha conhecer-nos.</strong>
       </p>
     </StyledArticle>
-  </>
+  </StyledSection>
 );
 
 export default Section2;

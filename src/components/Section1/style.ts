@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const StyledSection = styled.section`
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  background-color: #dedede;
+`;
+
 export const StyledHgroup = styled.hgroup`
   position: absolute;
   top: 25%;

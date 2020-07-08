@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 
-import { StyledHgroup } from './style';
+import { StyledSection, StyledHgroup } from './style';
 
 import VideoMp4 from '../../assets/videos/video01PT.mp4';
 import VideoWebm from '../../assets/videos/video01PT.webm';
@@ -19,8 +19,12 @@ const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
   }
 };
 
-const Section1: React.FC = () => (
-  <>
+interface SectionProps {
+  id: string;
+}
+
+const Section1: React.FC<SectionProps> = ({ id }) => (
+  <StyledSection id={id}>
     <StyledHgroup>
       <h1>Solução Digital Integrada</h1>
       <h2>para marcas de moda</h2>
@@ -38,7 +42,7 @@ const Section1: React.FC = () => (
         <source src={VideoMp4} type="video/mp4" />
       </video>
     </a>
-  </>
+  </StyledSection>
 );
 
 export default Section1;

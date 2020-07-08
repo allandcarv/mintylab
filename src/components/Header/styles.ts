@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
-export const ImgLogo = styled.img`
-  width: 184px;
-  height: 100%;
+export const StyledHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 13%;
+  position: fixed;
+  top: 0;
+  height: 80px;
+  background-color: #dedede;
+  z-index: 2;
 `;
 
 export const HorizontalMenu = styled.ul`

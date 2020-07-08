@@ -10,55 +10,25 @@ import Section6 from '../../components/Section6';
 import Section7 from '../../components/Section7';
 import Footer from '../../components/Footer';
 
-import {
-  StyledHeader,
-  StyledSection1,
-  StyledSection2,
-  StyledSection3,
-  StyledSection4,
-  StyledSection5,
-  StyledSection6,
-  StyledSection7,
-  StyledFooter,
-} from './styles';
-
 const Home: React.FC = () => (
   <>
-    <StyledHeader>
-      <Header toWhere="#banner" />
-    </StyledHeader>
+    <Header />
 
-    <StyledSection1 id="banner">
-      <Section1 />
-    </StyledSection1>
+    <Section1 id="banner" />
 
-    <StyledSection2 id="our-goal">
-      <Section2 />
-    </StyledSection2>
+    <Section2 id="our-goal" />
 
-    <StyledSection3 id="portfolio">
-      <Section3 />
-    </StyledSection3>
+    <Section3 id="portfolio" />
 
-    <StyledSection4 id="services">
-      <Section4 />
-    </StyledSection4>
+    <Section4 id="services" />
 
-    <StyledSection5 id="advantages">
-      <Section5 />
-    </StyledSection5>
+    <Section5 id="advantages" />
 
-    <StyledSection6 id="about-us">
-      <Section6 />
-    </StyledSection6>
+    <Section6 id="about-us" />
 
-    <StyledSection7 id="contact">
-      <Section7 />
-    </StyledSection7>
+    <Section7 id="contact" />
 
-    <StyledFooter>
-      <Footer />
-    </StyledFooter>
+    <Footer />
   </>
 );
 

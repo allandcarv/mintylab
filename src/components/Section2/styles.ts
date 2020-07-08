@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const StyledSection = styled.section`
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  background-color: #dedede;
+`;
+
 export const StyledPicture = styled.picture`
   display: block;
   width: 60%;
