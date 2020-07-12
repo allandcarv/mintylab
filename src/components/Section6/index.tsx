@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
-
 import { StyledSection, Container } from './styles';
 
 import 'swiper/swiper-bundle.min.css';
@@ -23,6 +22,10 @@ interface ClientProps {
 interface CurrentClientProps {
   name: string | null;
   role: string | null;
+}
+
+interface SwiperProps extends Swiper {
+  activeIndex?: number;
 }
 
 const Section6: React.FC<SectionProps> = ({ id }) => {
@@ -65,8 +68,7 @@ const Section6: React.FC<SectionProps> = ({ id }) => {
     },
   );
 
-  const onSlideChange = (swiper: Swiper): void => {
-    // @ts-ignore: Unreachable code error
+  const onSlideChange = (swiper: SwiperProps) => {
     const { activeIndex } = swiper;
 
     if (activeIndex === undefined || activeIndex === null) return;
@@ -107,15 +109,16 @@ const Section6: React.FC<SectionProps> = ({ id }) => {
       <Container>
         <p>Review dos Clientes</p>
         <Swiper
+          id="swiper2"
           spaceBetween={10}
           slidesPerView={1}
           centeredSlides
-          autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
           navigation={{
-            nextEl: 'footer .swiper-button-next',
-            prevEl: 'footer .swiper-button-prev',
+            nextEl: '#about-us footer .swiper-button-next',
+            prevEl: '#about-us .swiper-button-prev',
           }}
-          onSlideChange={swiper => onSlideChange(swiper)}
+          onSlideChange={(swiper: SwiperProps) => onSlideChange(swiper)}
         >
           {clientReviews.map(client => (
             <SwiperSlide key={client.role}>

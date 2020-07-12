@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent, useEffect } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { RiComputerLine } from 'react-icons/ri';
@@ -37,53 +37,43 @@ interface CurrentSlideProps {
   body: string;
 }
 
+interface SwiperProps extends Swiper {
+  activeIndex?: number;
+}
+
 const Section3: React.FC<SectionProps> = ({ id }) => {
-  const [showVersion, setShowVersion] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState<CurrentSlideProps | null>(
-    null,
-  );
-
-  const versions = ['Versão Desktop', 'Versão Mobile'];
-
   const slidesTags = [
     {
-      slide: 1,
       url: 'https://mintysquare.com/',
       title: 'MINTYSQUARE.COM',
       body: '/ WEB DESIGN / PROGRAMAÇÃO / PERFORMANCE MARKETING',
     },
     {
-      slide: 2,
       url: 'https://sneakersdelight.store/',
       title: 'SNEAKERSDELIGHT.STORE',
       body: '/ WEB DESIGN / PROGRAMAÇÃO / PERFORMANCE MARKETING',
     },
     {
-      slide: 3,
       url: 'https://kaoashop.com/',
       title: 'KAOASHOP.COM',
       body: '/ WEB DESIGN / PROGRAMAÇÃO / PERFORMANCE MARKETING',
     },
     {
-      slide: 4,
       url: 'https://patachou.com/',
       title: 'PATACHOU.COM',
       body: '/ WEB DESIGN / PROGRAMAÇÃO / PERFORMANCE MARKETING',
     },
     {
-      slide: 5,
       url: 'https://nobrand.pt/',
       title: 'NOBRAND.PT',
       body: '/ WEB DESIGN / PROGRAMAÇÃO / PERFORMANCE MARKETING',
     },
     {
-      slide: 6,
       url: 'https://ambitious-shoes.com/',
       title: 'AMBITIOUS-SHOES.COM',
       body: '/ WEB DESIGN / PROGRAMAÇÃO / PERFORMANCE MARKETING',
     },
     {
-      slide: 7,
       url: 'https://rufel.pt/',
       title: 'RUFEL.PT',
       body: '/ WEB DESIGN / PROGRAMAÇÃO',
@@ -110,40 +100,35 @@ const Section3: React.FC<SectionProps> = ({ id }) => {
     { image: portfolio07Mob, alt: 'Portfolio RUFEL' },
   ];
 
+  const [showVersion, setShowVersion] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState<CurrentSlideProps>({
+    slide: 1,
+    url: slidesTags[0].url,
+    title: slidesTags[0].title,
+    body: slidesTags[0].body,
+  });
+
+  const versions = ['Versão Desktop', 'Versão Mobile'];
+
   const handleButtonClick = (event: MouseEvent<HTMLButtonElement>) => {
     const { id: elementId } = event.target as HTMLButtonElement;
 
     setShowVersion(Number(elementId));
-    setCurrentSlide({ ...slidesTags[0] });
+    setCurrentSlide({ slide: 1, ...slidesTags[0] });
   };
 
-  const handleNextSlideClick = (): void => {
-    if (!currentSlide) return;
+  const onSlideChange = (swiper: SwiperProps) => {
+    const { activeIndex } = swiper;
 
-    if (currentSlide.slide === slidesTags.length) return;
+    if (activeIndex === null || activeIndex === undefined) return;
 
-    const nextSlide =
-      slidesTags.find(slideTag => slideTag.slide === currentSlide.slide + 1) ||
-      null;
-
-    setCurrentSlide(nextSlide);
+    setCurrentSlide({
+      slide: activeIndex + 1,
+      url: slidesTags[activeIndex].url,
+      title: slidesTags[activeIndex].title,
+      body: slidesTags[activeIndex].body,
+    });
   };
-
-  const handlePrevSlideClick = (): void => {
-    if (!currentSlide) return;
-
-    if (currentSlide.slide === 1) return;
-
-    const prevSlide =
-      slidesTags.find(slideTag => slideTag.slide === currentSlide.slide - 1) ||
-      null;
-
-    setCurrentSlide(prevSlide);
-  };
-
-  useEffect(() => {
-    setCurrentSlide({ ...slidesTags[0] });
-  }, []);
 
   return (
     <StyledSection id={id}>
@@ -182,9 +167,10 @@ const Section3: React.FC<SectionProps> = ({ id }) => {
             slidesPerView={3}
             centeredSlides
             navigation={{
-              nextEl: 'footer .swiper-button-next',
-              prevEl: 'footer .swiper-button-prev',
+              nextEl: '#portfolio footer .swiper-button-next',
+              prevEl: '#portfolio footer .swiper-button-prev',
             }}
+            onSlideChange={(swiper: SwiperProps) => onSlideChange(swiper)}
           >
             {desktopImages.map(image => (
               <SwiperSlide key={image.alt}>
@@ -198,13 +184,15 @@ const Section3: React.FC<SectionProps> = ({ id }) => {
       {showVersion === 1 && (
         <Container>
           <Swiper
+            id="swiper1"
             spaceBetween={3}
             slidesPerView={8}
             centeredSlides
             navigation={{
-              nextEl: 'footer .swiper-button-next',
-              prevEl: 'footer .swiper-button-prev',
+              nextEl: '#portfolio footer .swiper-button-next',
+              prevEl: '#portfolio footer .swiper-button-prev',
             }}
+            onSlideChange={(swiper: SwiperProps) => onSlideChange(swiper)}
           >
             {mobileImages.map(image => (
               <SwiperSlide key={image.alt}>
@@ -229,18 +217,10 @@ const Section3: React.FC<SectionProps> = ({ id }) => {
         </article>
 
         <div className="actions">
-          <button
-            type="button"
-            className="swiper-button-prev"
-            onClick={handlePrevSlideClick}
-          >
+          <button type="button" className="swiper-button-prev">
             <MdArrowBack size={90} color="#fff" />
           </button>
-          <button
-            type="button"
-            className="swiper-button-next"
-            onClick={handleNextSlideClick}
-          >
+          <button type="button" className="swiper-button-next">
             <MdArrowForward size={90} color="#fff" />
           </button>
         </div>
