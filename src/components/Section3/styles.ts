@@ -80,6 +80,11 @@ export const StyledSection = styled.section`
           content: unset;
         }
       }
+
+      svg {
+        height: 60px;
+        width: 60px;
+      }
     }
   }
 `;

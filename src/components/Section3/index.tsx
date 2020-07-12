@@ -1,5 +1,5 @@
 import React, { useState, MouseEvent, useEffect } from 'react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { RiComputerLine } from 'react-icons/ri';
 import { AiOutlineMobile } from 'react-icons/ai';
@@ -24,7 +24,7 @@ import portfolio05Mob from '../../assets/images/portfolio_nobrand_mob.jpg';
 import portfolio06Mob from '../../assets/images/portfolio_ambitious_mob.jpg';
 import portfolio07Mob from '../../assets/images/portfolio_rufel_mob.jpg';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation]);
 
 interface SectionProps {
   id: string;
